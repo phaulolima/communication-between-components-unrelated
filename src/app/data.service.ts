@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export class DataService {
 
+  // Ação padrão defina como false
   private eventSource = new BehaviorSubject(false);
   currentMessage = this.eventSource.asObservable();
 

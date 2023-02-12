@@ -10,6 +10,7 @@ import { DataService } from 'src/app/data.service';
 export class DetailsComponent implements OnInit, OnDestroy {
   message!:string;
   subscription!: Subscription;
+  activeAction: boolean = false;
 
   constructor(private data: DataService) { }
 
@@ -21,7 +22,8 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  newMessage() {
-    this.data.changeAction(true);
+  activate() {
+    this.activeAction = !this.activeAction;
+    this.data.changeAction(this.activeAction);
   }
 }
